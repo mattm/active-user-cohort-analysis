@@ -9,7 +9,7 @@ PlotActiveUserCohorts <- function(data) {
 	# dates so they can be used in in the ggplot below
 	data$signed.up <- as.Date(paste(data$signed.up, "-01", sep = ""))
 	graph <- ggplot(data,
-		aes(x = signed.up, y = active.users, fill = active))
+		aes(x = signed.up, y = active.users, fill = activity.cohorts))
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)
@@ -32,7 +32,7 @@ cohorts <- sort(unique(users$cohort))
 
 # Construct a data frame that we can supply to ggplot
 signed.up <- vector()
-active <- vector()
+activity.cohorts <- vector()
 active.users <- vector()
 for (signed.up.cohort in cohorts) {
 
@@ -51,11 +51,11 @@ for (signed.up.cohort in cohorts) {
 		# Keep track of each vector so we can construct the data frame afterwards
 		# TODO: There is probably a more elegant way to do this
 		signed.up <- append(signed.up, signed.up.cohort)
-		active <- append(active, activity.cohort)
+		activity.cohorts <- append(activity.cohorts, activity.cohort)
 		active.users <- append(active.users, length(unique.users))
 	}
 }
 
-data <- data.frame(signed.up, as.factor(active), active.users)
+data <- data.frame(signed.up, as.factor(activity.cohorts), active.users)
 
 PlotActiveUserCohorts(data)

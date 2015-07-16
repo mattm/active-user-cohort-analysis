@@ -2,11 +2,17 @@
 
 This is an R script that allows you to analyze active users by sign up cohort.
 
-# Plotting the test data
+# How it works
 
-Within RStudio, simply load this script using `source("active-user-cohort-analysis.r");`. 
+If you run a web or mobile app, you might be interested to know how many active users your app has each month. This R script will not only help you figure that out, but it will break down the active users each month into cohorts based on when the user was first seen.
 
-If all went well, it should generate the following chart:
+In order for it to work, all you need to do is to generate a CSV file containing a list of user ids and dates when the users performed actions in your app. See `data/test-data.csv` for the format.
+
+You'll need to edit `active-user-cohort-analysis.r` slightly depending on where you place the data file and whether it's comma separated or tab separated.
+
+# Testing the script
+
+Within RStudio, simply load the script using `source("active-user-cohort-analysis.r");`. If all went well, it should generate the following chart:
 
 ![Monthly cohort chart](images/monthly.png)
 

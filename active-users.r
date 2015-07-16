@@ -1,5 +1,5 @@
-DATA_PATH = "data/test-data.csv"
-DATA_FILE_SEPARATOR = "\t"
+CSV_PATH = "data/test-data.csv"
+CSV_SEPARATOR = "\t"
 
 # TODO: Figure out how to prevent ggplot from rendering a thin line for
 # cohorts that have zero active users in a month
@@ -18,7 +18,7 @@ PlotActiveUserCohorts <- function(data) {
 	print(graph)
 }
 
-activities <- read.csv(DATA_PATH, sep = DATA_FILE_SEPARATOR,
+activities <- read.csv(CSV_PATH, sep = CSV_SEPARATOR,
 	col.names = c("user.id", "date"), header = FALSE)
 activities$date <- as.Date(activities$date)
 activities$cohort <- format(activities$date, "%Y-%m")

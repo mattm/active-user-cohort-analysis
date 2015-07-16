@@ -7,9 +7,9 @@ PlotActiveUserCohorts <- function(data) {
 
 	# Convert the sign up month cohorts ("2015-01", etc) to
 	# dates so they can be used in in the ggplot below
-	data$signed.up <- as.Date(paste(data$signed.up, "-01", sep = ""))
+	data$signup.cohorts <- as.Date(paste(data$signup.cohorts, "-01", sep = ""))
 	graph <- ggplot(data,
-		aes(x = signed.up, y = active.users, fill = activity.cohorts))
+		aes(x = signup.cohorts, y = active.users, fill = activity.cohorts))
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)
@@ -31,18 +31,18 @@ users <- aggregate(cohort ~ user.id, activities, min)
 cohorts <- sort(unique(users$cohort))
 
 # Construct a data frame that we can supply to ggplot
-signed.up <- vector()
+signup.cohorts <- vector()
 activity.cohorts <- vector()
 active.users <- vector()
-for (signed.up.cohort in cohorts) {
+for (signup.cohort in cohorts) {
 
 	# Figure out which users signed up in this cohort
-	signed.up.user.ids <- users[users$cohort == signed.up.cohort, "user.id"]
+	signup.user.ids <- users[users$cohort == signup.cohort, "user.id"]
 	for (activity.cohort in cohorts) {
 
 		# Figure out which activities those users performed in every other cohort
 		# including cohorts before they signed up (required for ggplot stacking)
-		user.activities <- activities[activities$user.id %in% signed.up.user.ids
+		user.activities <- activities[activities$user.id %in% signup.user.ids
 			& activities$cohort == activity.cohort, ]
 
 		# If a user performed multiple activities in a cohort, only count it once
@@ -50,12 +50,12 @@ for (signed.up.cohort in cohorts) {
 
 		# Keep track of each vector so we can construct the data frame afterwards
 		# TODO: There is probably a more elegant way to do this
-		signed.up <- append(signed.up, signed.up.cohort)
+		signup.cohorts <- append(signup.cohorts, signup.cohort)
 		activity.cohorts <- append(activity.cohorts, activity.cohort)
 		active.users <- append(active.users, length(unique.users))
 	}
 }
 
-data <- data.frame(signed.up, as.factor(activity.cohorts), active.users)
+data <- data.frame(signup.cohorts, as.factor(activity.cohorts), active.users)
 
 PlotActiveUserCohorts(data)

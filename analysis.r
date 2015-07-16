@@ -14,7 +14,7 @@ PlotActiveUserCohorts <- function(data) {
 	print(graph)
 }
 
-activities <- read.csv("test-data.csv", sep = "\t",
+activities <- read.csv("data/test-data.csv", sep = "\t",
 	col.names = c("user.id", "date"), header = FALSE)
 activities$date <- as.Date(activities$date)
 activities$cohort <- format(activities$date, "%Y-%m")

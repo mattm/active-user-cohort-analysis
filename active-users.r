@@ -1,4 +1,4 @@
-CSV_PATH = "data/complete.csv"
+CSV_PATH = "data/test-data.csv"
 CSV_SEPARATOR = "\t"
 
 Run <- function() {

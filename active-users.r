@@ -48,7 +48,7 @@ AnalyzeActiveUserCohorts <- function(activities) {
 		}
 	}
 
-	data.frame(signup.cohorts, as.factor(activity.cohorts), active.users)
+	data.frame(signup.cohorts, activity.cohorts, active.users)
 }
 
 # We determine which cohort each user belongs to based on his first activity
@@ -60,11 +60,13 @@ GetActiveUserCohorts <- function(activities) {
 # cohorts that have zero active users in a month
 PlotActiveUserCohorts <- function(data) {
 
+	print(data)
+
 	# Convert the sign up month cohorts ("2015-01", etc) to
 	# dates so they can be used in in the ggplot below
 	data$signup.cohorts <- as.Date(paste(data$signup.cohorts, "-01", sep = ""))
 	graph <- ggplot(data,
-		aes(x = signup.cohorts, y = active.users, fill = activity.cohorts))
+		aes(x = signup.cohorts, y = active.users, fill = as.factor(activity.cohorts)))
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)

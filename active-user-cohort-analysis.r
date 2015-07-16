@@ -1,3 +1,6 @@
+DATA_PATH = "data/test-data.csv"
+DATA_FILE_SEPARATOR = "\t"
+
 PlotActiveUserCohorts <- function(data) {
 	#cohortData <- read.csv("2010-cohorts.csv")
 
@@ -14,7 +17,7 @@ PlotActiveUserCohorts <- function(data) {
 	print(graph)
 }
 
-activities <- read.csv("data/test-data.csv", sep = "\t",
+activities <- read.csv(DATA_PATH, sep = DATA_FILE_SEPARATOR,
 	col.names = c("user.id", "date"), header = FALSE)
 activities$date <- as.Date(activities$date)
 activities$cohort <- format(activities$date, "%Y-%m")

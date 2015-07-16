@@ -8,7 +8,7 @@ If you run a web or mobile app, you might be interested to know how many active 
 
 In order for it to work, all you need to do is to generate a CSV file containing a list of user ids and dates when the users performed actions in your app. See `data/test-data.csv` for the format.
 
-You'll need to edit `active-user-cohort-analysis.r` slightly depending on where you place the data file and whether it's comma separated or tab separated.
+You'll need to edit the `DATA_PATH` and `DATA_FILE_SEPARATOR` at the top of `active-user-cohort-analysis.r` depending on where you place the data file and whether the file comma-separated or tab-separated.
 
 # Testing the script
 

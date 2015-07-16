@@ -46,7 +46,7 @@ AnalyzeActiveUserCohorts <- function(activities) {
 			unique.users <- unique(user.activities$user.id)
 
 			# Keep track of each vector so we can construct the data frame afterwards
-			# TODO: There is probably a more elegant way to do this
+			# TODO: Is there a way to do this without the two loops?
 			signup.cohorts <- append(signup.cohorts, signup.cohort)
 			activity.cohorts <- append(activity.cohorts, activity.cohort)
 			active.users <- append(active.users, length(unique.users))

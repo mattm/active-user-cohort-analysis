@@ -56,8 +56,6 @@ GetUserSignupCohorts <- function(activities) {
 	aggregate(cohort ~ user.id, activities, min)
 }
 
-# TODO: Figure out how to prevent ggplot from rendering a thin line for
-# cohorts that have zero active users in a month
 PlotActiveUserCohorts <- function(data) {
 
 	# Convert the sign up month cohorts ("2015-01", etc) to

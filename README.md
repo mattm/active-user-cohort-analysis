@@ -12,7 +12,7 @@ You'll need to edit the `DATA_PATH` and `DATA_FILE_SEPARATOR` at the top of `act
 
 ## Testing the script
 
-Within RStudio, simply load the script using `source("active-users.r");`. If all went well, it should generate the following chart:
+Within RStudio, simply load the script using `source("active-users.r")`. If all went well, it should generate the following chart:
 
 ![Monthly cohort chart](images/monthly.png)
 

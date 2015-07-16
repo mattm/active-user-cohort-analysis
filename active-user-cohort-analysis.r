@@ -6,6 +6,9 @@ PlotActiveUserCohorts <- function(data) {
 
 	# Convert the sign up month cohorts ("2015-01", etc) to
 	# dates so they can be used in in the ggplot below
+
+	# TODO: Figure out how to prevent ggplot from rendering a thin line for
+	# cohorts that have zero active users in a month
 	data$signed.up <- as.Date(paste(data$signed.up, "-01", sep = ""))
 	graph <- ggplot(data,
 		aes(x = signed.up, y = active.users, fill = active))

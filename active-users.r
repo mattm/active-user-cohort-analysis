@@ -16,7 +16,7 @@ LoadActivityData <- function() {
 }
 
 AnalyzeActiveUserCohorts <- function(activities) {
-	users <- GetActiveUserCohorts(activities)
+	users <- GetUserSignupCohorts(activities)
 
 	# Figure out all of the cohorts that we need to analyze
 	# TODO: What happens if there is month without any data?
@@ -52,7 +52,7 @@ AnalyzeActiveUserCohorts <- function(activities) {
 }
 
 # We determine which cohort each user belongs to based on his first activity
-GetActiveUserCohorts <- function(activities) {
+GetUserSignupCohorts <- function(activities) {
 	aggregate(cohort ~ user.id, activities, min)
 }
 

@@ -62,9 +62,9 @@ PlotActiveUserCohorts <- function(data) {
 
 	# Convert the sign up month cohorts ("2015-01", etc) to
 	# dates so they can be used in in the ggplot below
-	data$signup.cohorts <- as.Date(paste(data$signup.cohorts, "-01", sep = ""))
+	data$activity.cohorts <- as.Date(paste(data$activity.cohorts, "-01", sep = ""))
 	graph <- ggplot(data,
-		aes(x = signup.cohorts, y = active.users, fill = as.factor(activity.cohorts)))
+		aes(x = activity.cohorts, y = active.users, fill = as.factor(signup.cohorts)))
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)

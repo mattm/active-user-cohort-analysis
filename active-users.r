@@ -1,5 +1,10 @@
+library("ggplot2")
+library("grid")
+
 CSV_PATH = "data/test-data.csv"
 CSV_SEPARATOR = "\t"
+BACKGROUND_COLOR = "#F6F8FA"
+GRID_COLOR = "#DDDDDD"
 
 Run <- function() {
 	activities <- LoadActivityData()
@@ -66,6 +71,12 @@ PlotActiveUserCohorts <- function(data) {
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)
+	graph <- graph + ggtitle("Active Users Cohorts by Month")
+	graph <- graph + theme(plot.title = element_text(lineheight = 0.8, face = "bold"))
+	graph <- graph + theme(axis.ticks = element_blank())
+	graph <- graph + theme(plot.background = element_rect(fill = BACKGROUND_COLOR))
+	graph <- graph + theme(panel.background = element_blank())
+	graph <- graph + theme(panel.grid.major = element_line(color = GRID_COLOR, size = 0.2))
 
 	# Call print so that the graph is rendered in RStudio
 	print(graph)

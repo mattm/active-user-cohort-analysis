@@ -4,7 +4,11 @@ This is an R script that allows you to analyze active users by sign up cohort.
 
 # Plotting the test data
 
-Within RStudio, simply load this script using `source("analysis.r");`.
+Within RStudio, simply load this script using `source("analysis.r");`. 
+
+If all went well, it should generate the following chart:
+
+![Monthly cohort chart](images/monthly.png)
 
 # Contact
 

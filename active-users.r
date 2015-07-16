@@ -1,4 +1,4 @@
-CSV_PATH = "data/test-data.csv"
+CSV_PATH = "data/complete.csv"
 CSV_SEPARATOR = "\t"
 
 Run <- function() {
@@ -59,8 +59,6 @@ GetActiveUserCohorts <- function(activities) {
 # TODO: Figure out how to prevent ggplot from rendering a thin line for
 # cohorts that have zero active users in a month
 PlotActiveUserCohorts <- function(data) {
-
-	print(data)
 
 	# Convert the sign up month cohorts ("2015-01", etc) to
 	# dates so they can be used in in the ggplot below

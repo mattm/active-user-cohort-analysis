@@ -24,7 +24,7 @@ AnalyzeActiveUserCohorts <- function(activities) {
 	users <- GetUserSignupCohorts(activities)
 
 	# Figure out all of the cohorts that we need to analyze
-	# TODO: What happens if there is month without any data?
+	# We'll only analyze cohorts that contain new users
 	cohorts <- sort(unique(users$cohort))
 
 	# Construct a data frame that we can supply to ggplot

@@ -46,7 +46,7 @@ AnalyzeActiveUserCohorts <- function(activities) {
 			unique.users <- unique(user.activities$user.id)
 
 			# Keep track of each vector so we can construct the data frame afterwards
-			# TODO: Is there a way to do this without the two loops?
+			# Is there a way to do this without the two loops?
 			signup.cohorts <- append(signup.cohorts, signup.cohort)
 			activity.cohorts <- append(activity.cohorts, activity.cohort)
 			active.users <- append(active.users, length(unique.users))
@@ -71,8 +71,8 @@ PlotActiveUserCohorts <- function(data) {
 	graph <- graph + geom_area()
 	graph <- graph + labs(x = "Sign Up Month", y = "Active Users")
 	graph <- graph + guides(fill = FALSE)
-	graph <- graph + ggtitle("Active Users Cohorts by Month")
-	graph <- graph + theme(plot.title = element_text(lineheight = 0.8, face = "bold"))
+	graph <- graph + ggtitle("Active Users by Month\nBroken Down by Sign Up Cohort")
+	graph <- graph + theme(plot.title = element_text(lineheight = 1.2, face = "bold", size=rel(1.5)))
 	graph <- graph + theme(axis.ticks = element_blank())
 	graph <- graph + theme(plot.background = element_rect(fill = BACKGROUND_COLOR))
 	graph <- graph + theme(panel.background = element_blank())

@@ -2,6 +2,8 @@
 
 This is an R script that allows you to analyze active users by sign up cohort.
 
+If you've never used R before, you'll need to download a tool like [RStudio](https://www.rstudio.com/products/rstudio/download/) to run this script.
+
 ## How it works
 
 If you run a web or mobile app, you might be interested to know how many active users your app has each month. This R script will not only help you figure that out, but it will break down the active users each month into cohorts based on when the user was first seen.

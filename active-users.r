@@ -1,5 +1,4 @@
 library("ggplot2")
-library("grid")
 
 CSV_PATH = "data/test-data.csv"
 CSV_SEPARATOR = "\t"

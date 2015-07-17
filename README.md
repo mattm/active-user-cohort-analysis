@@ -23,7 +23,7 @@ In order for it to work, all you need to do is to generate a CSV file containing
 4	2010-10-06
 ```
 
-See `data/test-data.csv` for an example.
+The provided `data/test-data.csv` contains a test dataset that you can use to test the script.
 
 You'll need to edit the `CSV_PATH` and `CSV_SEPARATOR` at the top of `active-users.r` depending on where you place the data file and whether the file comma-separated or tab-separated.
 

@@ -1,6 +1,6 @@
 # Active User Cohort Analysis in R
 
-This is an R script that allows you to analyze active users by sign up cohort.
+This is an R script that allows you to analyze active users by sign up cohort. You can read more about it in [this blog post](http://mattmazur.com/2015/07/17/visualizing-your-saas-apps-monthly-active-users-broken-down-by-signup-cohort/).
 
 If you've never used R before, you'll need to [install R](https://cran.r-project.org/mirrors.html) and optionally download a tool like [RStudio](https://www.rstudio.com/products/rstudio/download/) to run this script. You'll also need to install the `ggplot2` package with `install.packages("ggplot2")` and use `setwd()` to change the working directory to match the location of this script.
 
